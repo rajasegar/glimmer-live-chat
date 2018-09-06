@@ -1,19 +1,19 @@
 #!/bin/sh
 
 REPO_NAME=$(sed -n '/name/p' package.json | awk '{print $2}' | sed 's/"//g; s/,//g')
-DIST_FOLDER="dist"
+DIST_FOLDER=dist
 
 # Clean up dist folder
-rm -Rf "$DIST_FOLDER/*"
+rm -Rf $DIST_FOLDER/*
 
 # Run the build
 npm run build
 
 # Create a temp directory
-mkdir "/tmp/$REPO_NAME"
+mkdir /tmp/$REPO_NAME
 
 # Copy all the build files to the temp directory
-cp -R "$DIST_FOLDER/*" "/tmp/$REPO_NAME"
+cp -R $DIST_FOLDER/* /tmp/$REPO_NAME
 
 # Check out the gh-pages branch
 git checkout gh-pages
@@ -22,7 +22,7 @@ git checkout gh-pages
 rm -Rf ./*
 
 # Copy all the files from the temp directory
-cp -R "/tmp/$REPO_NAME/*" ./
+cp -R /tmp/$REPO_NAME/* ./
 
 # Commit and push to gh-pages
 git add .
