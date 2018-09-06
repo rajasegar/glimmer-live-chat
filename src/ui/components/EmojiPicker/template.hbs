@@ -1,0 +1,21 @@
+<div
+  tabIndex="0"
+  class="sc-emoji-picker"
+>
+  <div class="sc-emoji-picker--content">
+    {{#each emojiData key="@index" as |category| }}
+    <div class="sc-emoji-picker--category" key={{category.name}}>
+      <div class="sc-emoji-picker--category-title">{{category.name}}</div>
+      {{#each category.emojis key="@index" as |emoji| }}
+      <span
+        key={{emoji}}
+        class="sc-emoji-picker--emoji"
+        onclick={{action @onEmojiPicked emoji}}
+      >
+        {{emoji}}
+      </span>
+      {{/each}}
+    </div>
+    {{/each}}
+  </div>
+</div>

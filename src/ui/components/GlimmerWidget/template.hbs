@@ -1,1 +1,13 @@
-<div><h1>Welcome to Glimmer!</h1></div>
+<DemoHeader />
+<TestArea @onMessage={{action sendMessage}} />
+<Launcher
+  @isOpen={{isOpen}}
+  @agentProfile={{agentProfile}}
+  @messageList={{messageList}}
+  @newMessagesCount={{newMessagesCount}}
+  @showEmoji=true
+  @onToggle={{action toggleLauncher}}
+  @onMessageWasSent={{action _onMessageWasSent}}
+/>
+<img class="demo-monster-img" src="Small-Tomster-Logo.png"  />
+<Footer />

@@ -1,0 +1,17 @@
+<div>
+  <div>
+  </div>
+  <div class="sc-launcher {{if @isOpen 'opened' }}" onclick={{action @onToggle}}>
+    <MessageCount @count={{@newMessagesCount}} @isOpen={{@isOpen}} />
+    <img class="sc-open-icon" src="{{launcherIconActive}}" />
+    <img class="sc-closed-icon" src="{{launcherIcon}}" />
+  </div>
+  <ChatWindow
+    @messageList={{@messageList}}
+    @onUserInputSubmit={{action @onMessageWasSent}}
+    @agentProfile={{@agentProfile}}
+    @isOpen={{@isOpen}}
+    @onClose={{action @onToggle}}
+    @showEmoji={{@showEmoji}}
+  />
+</div>
